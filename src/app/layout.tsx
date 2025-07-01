@@ -3,7 +3,7 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Image from "next/image";
 import Card from "./ui/Card";
-import ContactInfo from "./ui/ContactInfo";
+import ContactInfo, { ContactInfoProps } from "./ui/ContactInfo";
 
 const montserratSans = Montserrat({
   variable: "--font-montserrat-sans",
@@ -20,13 +20,46 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const contactInfoList: ContactInfoProps[] = [
+    {
+      iconAlt: "Email",
+      iconSrc: "/contact/contact-email.svg",
+      text: "rhenaranes@gmail.com",
+      href: "mailto:rhenaranes@gmail.com"
+    },
+    {
+      iconAlt: "LinkedIn",
+      iconSrc: "/contact/contact-linkedin.svg",
+      text: "rc-aranes",
+      href: "https://www.linkedin.com/in/rc-aranes/"
+    },
+    {
+      iconAlt: "Phone",
+      iconSrc: "/contact/contact-phone.svg",
+      text: "+639765223284",
+      href: "tel:+639765223284"
+    },
+    {
+      iconAlt: "GitHub",
+      iconSrc: "/contact/contact-github.svg",
+      text: "rhenwinch",
+      href: "https://github.com/rhenwinch"
+    },
+    {
+      iconAlt: "Location",
+      iconSrc: "/contact/contact-location.svg",
+      text: "QC, Philippines",
+      href: "https://maps.google.com/?q=Quezon+City,+Philippines"
+    }
+  ];
+
   return (
     <html lang="en">
       <body
         className={`${montserratSans.className} antialiased`}
       >
-        <div className="flex flex-col justify-center w-[100%]">
-          <div className="flex flex-row h-[32vh] items-center gap-8 mx-auto">
+        <div className="flex flex-col justify-center w-full max-w-[65%] mx-auto gap-10">
+          <div className="flex flex-col md:flex-row h-[32vh] items-center gap-8">
             <Card className="h-[100%]">
               <div className="w-65 h-[100%] flex flex-col justify-center items-center gap-10 m-auto">
                 <Image
@@ -42,36 +75,24 @@ export default function RootLayout({
                 </div>
               </div>
             </Card>
-            <Card className="h-[100%]">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 h-[100%] w-[40vw] items-center justify-around">
-                <ContactInfo
-                  iconAlt="Email"
-                  iconSrc="/contact/contact-email.svg"
-                  text="rhenaranes@gmail.com"
-                />
-                <ContactInfo
-                  iconAlt="LinkedIn"
-                  iconSrc="/contact/contact-linkedin.svg"
-                  text="rc-aranes"
-                />
-                <ContactInfo
-                  iconAlt="Phone"
-                  iconSrc="/contact/contact-phone.svg"
-                  text="+639765223284"
-                />
-                <ContactInfo
-                  iconAlt="GitHub"
-                  iconSrc="/contact/contact-github.svg"
-                  text="rhenwinch"
-                />
-                <ContactInfo
-                  iconAlt="Location"
-                  iconSrc="/contact/contact-location.svg"
-                  text="QC, Philippines"
-                />
+            <Card className="h-[100%] flex-1">
+              <div className="grid grid-cols-2 p-5 gap-10 h-[100%] items-center justify-around">
+                {
+                  contactInfoList.map((contact, index) => (
+                    <ContactInfo
+                      key={index}
+                      iconAlt={contact.iconAlt}
+                      iconSrc={contact.iconSrc}
+                      text={contact.text}
+                      href={contact.href}
+                    />
+                  ))
+                }
               </div>
             </Card>
           </div>
+
+          <div className="w-full h-px bg-white/40"></div>
         </div>
         {children}
       </body>
