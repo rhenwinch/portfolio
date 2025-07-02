@@ -1,5 +1,7 @@
 'use client'
 
+import { cn } from "@/lib/utils"
+
 export default function Card({
   children,
   className = ""
@@ -8,7 +10,7 @@ export default function Card({
   className?: string;
 }>) {
   return (
-    <div className={`bg-white/5 rounded-[20px] min-w-fit min-h-fit shadow-md p-6 ${className}`}>
+    <div className={cn("bg-white/5 rounded-[20px] min-w-fit min-h-fit shadow-md p-6", className)}>
       {children}
     </div>
   )

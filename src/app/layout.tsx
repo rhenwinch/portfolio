@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Image from "next/image";
-import Card from "./ui/Card";
-import ContactInfo, { ContactInfoProps } from "./ui/ContactInfo";
+import Card from "@/components/Card";
+import ContactInfo, { ContactInfoProps } from "@/components/ContactInfo";
 
 const montserratSans = Montserrat({
   variable: "--font-montserrat-sans",
@@ -58,7 +58,7 @@ export default function RootLayout({
       <body
         className={`${montserratSans.className} antialiased`}
       >
-        <div className="flex flex-col justify-center w-full max-w-[65%] mx-auto gap-10">
+        <div className="flex flex-col justify-center w-full max-w-[65%] mx-auto gap-10 mt-[5vh]">
           <div className="flex flex-col md:flex-row h-[32vh] items-center gap-8">
             <Card className="h-[100%]">
               <div className="w-65 h-[100%] flex flex-col justify-center items-center gap-10 m-auto">
@@ -92,9 +92,9 @@ export default function RootLayout({
             </Card>
           </div>
 
-          <div className="w-full h-px bg-white/40"></div>
+          <div className="h-px bg-white/40"></div>
+          {children}
         </div>
-        {children}
       </body>
     </html>
   );
