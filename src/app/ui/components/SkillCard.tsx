@@ -1,35 +1,35 @@
 'use client';
 
 import Card from "@/components/Card";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 export default function SkillCard({
     title,
     src,
-    width = 100,
-    height = 100,
+    width = 80,
+    height = 80,
     className = "",
 }: Readonly<{
     title: string;
     src: string;
-    alt: string;
     width?: number;
     height?: number;
     className?: string;
 }>) {
     return (
-        <div className="flex flex-col items-center justify-center text-center">
-            <Card className={`p-6 max-w-sm ${className}`}>
+        <div className={cn("flex flex-col items-center text-center gap-6 w-40", className)}>
+            <Card className="bg-black/15 shadow-lg p-10 w-full flex items-center justify-center hover:scale-105 hover:shadow-xl transition-all duration-300 ease-in-out">
                 <Image
                     src={src}
                     alt={title}
                     width={width}
                     height={height}
-                    className="mb-4"
+                    className="w-18 h-18 object-contain"
                 />
             </Card>
 
-            <span className="text-lg font-semibold text-orange-300 mb-2">{title}</span>
+            <span className="text-md text-white/80 font-semibold text-center mb-2 w-[90%]">{title}</span>
         </div>
     );
 }
