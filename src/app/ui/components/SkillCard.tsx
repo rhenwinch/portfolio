@@ -19,7 +19,7 @@ export default function SkillCard({
 }>) {
     return (
         <div className={cn("flex flex-col items-center text-center gap-6 w-40", className)}>
-            <Card className="bg-black/15 shadow-lg p-10 w-full flex items-center justify-center hover:scale-105 hover:shadow-xl transition-all duration-300 ease-in-out">
+            <Card className="rounded-xl overflow-hidden bg-black/15 border border-white/5 relative p-10 w-full flex items-center justify-center">
                 <Image
                     src={src}
                     alt={title}
