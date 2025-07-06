@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Card from "@/components/Card";
 import NavButton from "@/components/NavButton";
 import AboutMe from "./ui/screens/AboutMe";
@@ -10,8 +10,21 @@ import Experiences from "./ui/screens/Experiences";
 type NavItem = 'About me' | 'Projects' | 'Experiences';
 
 export default function MainContent() {
-  const [activeNav, setActiveNav] = useState<NavItem>('About me');
+  const [activeNav, setActiveNav] = useState<NavItem | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
+
+  // Load saved navigation state from session storage
+  useEffect(() => {
+    const savedNav = sessionStorage.getItem('activeNav') as NavItem;
+    if (savedNav && ['About me', 'Projects', 'Experiences'].includes(savedNav)) {
+      setActiveNav(savedNav);
+    }
+  }, []);
+
+  // Save navigation state to session storage whenever it changes
+  useEffect(() => {
+    sessionStorage.setItem('activeNav', activeNav || '');
+  }, [activeNav]);
 
   const handleNavChange = (newNav: NavItem) => {
     if (newNav === activeNav) return;
@@ -32,7 +45,7 @@ export default function MainContent() {
       case 'Experiences':
         return <Experiences />;
       default:
-        return <AboutMe />;
+        return null;
     }
   };
 
