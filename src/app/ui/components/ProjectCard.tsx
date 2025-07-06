@@ -97,7 +97,7 @@ export default function ProjectCard({
   };
 
   return (
-    <div className="bg-black/25 rounded-2xl p-6 border border-white/10 flex flex-col group shadow-xl hover:shadow-2xl transition-all duration-300 hover:bg-black/40 hover:border-white/20 relative">
+    <div className="bg-black/25 rounded-2xl p-6 border border-white/10 flex flex-col group shadow-xl hover:shadow-2xl transition-all duration-300 hover:bg-black/40 hover:border-white/20 relative h-full">
       {/* Open for Contributions Tag */}
       {isOpenForContributions && (
         <div className="absolute top-4 left-4 z-10">

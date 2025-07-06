@@ -262,14 +262,14 @@ export default function Projects() {
           {filteredProjects.map((project, index) => (
             <div
               key={`${project.name}-${activeFilter}`}
-              className="animate-fadeIn"
+              className="animate-fadeIn flex"
               style={{
                 animationDelay: `${index * 0.08}s`,
                 animationDuration: '0.6s',
                 animationFillMode: 'both'
               }}
             >
-              <div className="transform transition-all duration-300 hover:scale-102 hover:shadow-lg">
+              <div className="transform transition-all duration-300 hover:scale-102 hover:shadow-lg w-full flex">
                 <ProjectCard
                   name={project.name}
                   preview={project.preview}
