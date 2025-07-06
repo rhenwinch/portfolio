@@ -97,7 +97,7 @@ export default function ProjectCard({
   };
 
   return (
-    <div className="bg-black/40 backdrop-blur-md rounded-2xl p-6 border border-white/10 flex flex-col group shadow-xl hover:shadow-2xl transition-all duration-300 hover:bg-black/50 hover:border-white/20 relative">
+    <div className="bg-black/25 rounded-2xl p-6 border border-white/10 flex flex-col group shadow-xl hover:shadow-2xl transition-all duration-300 hover:bg-black/40 hover:border-white/20 relative">
       {/* Open for Contributions Tag */}
       {isOpenForContributions && (
         <div className="absolute top-4 left-4 z-10">
@@ -156,7 +156,7 @@ export default function ProjectCard({
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-black/30 text-white hover:bg-black/50 rounded-xl transition-all duration-200 backdrop-blur-sm border border-white/15 hover:border-white/30 hover:scale-105"
+                  className="p-3 bg-black/20 text-white hover:bg-black/40 rounded-xl transition-all duration-200 backdrop-blur-sm border border-white/15 hover:border-white/30 hover:scale-105"
                   title={link.label}
                 >
                   {getIconForPlatform(link.label)}
