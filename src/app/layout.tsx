@@ -50,6 +50,12 @@ export default function RootLayout({
       iconSrc: "/contact/contact-location.svg",
       text: "QC, Philippines",
       href: "https://maps.google.com/?q=Quezon+City,+Philippines"
+    },
+    {
+      iconAlt: "Location",
+      iconSrc: "/contact/contact-resume.svg",
+      text: "My Resume",
+      href: "#"
     }
   ];
 
