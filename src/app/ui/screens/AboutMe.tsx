@@ -59,36 +59,63 @@ export default function AboutMe() {
         <Header title="What I Do" className="mt-20 mb-6 text-xl" hasDivider={false} />
 
         <div className="flex flex-row flex-wrap gap-6">
-          {WHAT_I_DO.map((skill) => (
-            <SkillCard
+          {WHAT_I_DO.map((skill, index) => (
+            <div
               key={skill.title}
-              title={skill.title}
-              src={skill.src}
-            />
+              className="animate-fadeIn"
+              style={{
+                animationDelay: `${index * 0.1}s`,
+                animationDuration: '0.6s',
+                animationFillMode: 'both'
+              }}
+            >
+              <SkillCard
+                title={skill.title}
+                src={skill.src}
+              />
+            </div>
           ))}
         </div>
 
         <Header title="What I Know" className="mt-20 mb-6 text-xl" hasDivider={false} />
 
         <div className="flex flex-row flex-wrap gap-6">
-          {WHAT_I_KNOW.map((skill) => (
-            <SkillCard
+          {WHAT_I_KNOW.map((skill, index) => (
+            <div
               key={skill.title}
-              title={skill.title}
-              src={skill.src}
-            />
+              className="animate-fadeIn"
+              style={{
+                animationDelay: `${(index + WHAT_I_DO.length) * 0.1}s`,
+                animationDuration: '0.6s',
+                animationFillMode: 'both'
+              }}
+            >
+              <SkillCard
+                title={skill.title}
+                src={skill.src}
+              />
+            </div>
           ))}
         </div>
 
         <Header title="What to Learn" className="mt-20 mb-6 text-xl" hasDivider={false} />
 
         <div className="flex flex-row flex-wrap gap-6">
-          {WHAT_TO_LEARN.map((skill) => (
-            <SkillCard
+          {WHAT_TO_LEARN.map((skill, index) => (
+            <div
               key={skill.title}
-              title={skill.title}
-              src={skill.src}
-            />
+              className="animate-fadeIn"
+              style={{
+                animationDelay: `${(index + WHAT_I_DO.length + WHAT_I_KNOW.length) * 0.1}s`,
+                animationDuration: '0.6s',
+                animationFillMode: 'both'
+              }}
+            >
+              <SkillCard
+                title={skill.title}
+                src={skill.src}
+              />
+            </div>
           ))}
         </div>
       </div>
