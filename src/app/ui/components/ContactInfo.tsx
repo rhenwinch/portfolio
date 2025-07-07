@@ -15,29 +15,25 @@ export default function ContactInfo({
   text,
   href
 }: ContactInfoProps) {
-  const handleClick = () => {
-    if (href) {
-      window.open(href, '_blank', 'noopener,noreferrer');
-    }
-  };
-
   return (
-    <div 
-      className="flex items-center gap-3 cursor-pointer group transition-all duration-300 ease-out hover:scale-105 hover:translate-x-2 w-fit"
-      onClick={handleClick}
+    <a 
+      className="flex items-center gap-4 cursor-pointer group transition-all duration-300 w-fit"
+      href={href}
+      target='_blank'
+      rel='noopener noreferrer'
     >
-      <div className="bg-black/20 rounded-[15px] shadow-lg items-center flex justify-center relative overflow-hidden transition-all duration-300 ease-out group-hover:bg-black/30 group-hover:shadow-xl group-hover:shadow-white/10">
+      <div className="bg-black/25 rounded-xl border border-white/0 flex items-center justify-center p-3 backdrop-blur-sm shadow-md hover:bg-black/40 hover:border-white/20 transition-all duration-300">
         <Image 
           alt={iconAlt} 
           src={iconSrc} 
-          width={18} 
-          height={18}
-          className='m-4 relative z-10 transition-all duration-300 ease-out group-hover:scale-110 group-hover:brightness-125'
+          width={20} 
+          height={20}
+          className="object-contain"
         />
       </div>
-      <div className="justify-start text-white text-sm font-normal transition-all duration-300 ease-out group-hover:text-white/90 group-hover:translate-x-1">
+      <div className="text-white/85 text-sm font-medium">
         {text}
       </div>
-    </div>
+    </a>
   );
 }
