@@ -2,6 +2,7 @@ import Card from "@/components/Card";
 import Header from "@/components/Header";
 import BackgroundItem from "@/components/BackgroundItem";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 interface HistoryItem {
   title: string;
@@ -112,70 +113,119 @@ const EDUCATION_DATA: HistoryItem[] = [
 ];
 
 export default function Background() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    // Trigger animation on component mount
+    setIsLoaded(true);
+  }, []);
+
   return (
     <Card className="p-6 w-fill">
-      <Header title="Background" className="mb-8" />
-      
-      <div className="space-y-12">
-        {/* Experience Section */}
-        <section className="timeline">
-          <div className="title-wrapper flex items-center gap-4 mb-5">
-            <div className="bg-black/25 rounded-xl border border-white/0 flex items-center justify-center p-3 backdrop-blur-sm shadow-md">
-              <Image 
-                alt="Experience"
-                src="corporate.svg"
-                width={24}
-                height={24}
-                className="object-contain"
-              />
+      <div 
+        className={`
+          transition-all duration-500 ease-in-out
+          ${isLoaded 
+            ? 'opacity-100 transform translate-y-0' 
+            : 'opacity-0 transform translate-y-4'
+          }
+        `}
+      >
+        <Header title="Background" className="mb-8" />
+        
+        <div className="space-y-12">
+          {/* Experience Section */}
+          <section className="timeline">
+            <div 
+              className="title-wrapper flex items-center gap-4 mb-5 animate-fadeIn"
+              style={{
+                animationDelay: '0.1s',
+                animationDuration: '0.6s',
+                animationFillMode: 'both'
+              }}
+            >
+              <div className="bg-black/25 rounded-xl border border-white/0 flex items-center justify-center p-3 backdrop-blur-sm shadow-md">
+                <Image 
+                  alt="Experience"
+                  src="corporate.svg"
+                  width={24}
+                  height={24}
+                  className="object-contain"
+                />
+              </div>
+              <h2 className="text-xl font-bold text-white">Experience</h2>
             </div>
-            <h2 className="text-xl font-bold text-white">Experience</h2>
-          </div>
-          <ol className="timeline-list">
-            {EXPERIENCE_DATA.map((item, index) => (
-              <BackgroundItem
-                key={`experience-${index}`}
-                title={item.title}
-                company={item.company}
-                duration={item.duration}
-                location={item.location}
-                description={item.description}
-                skills={item.skills}
-                isLast={index === EXPERIENCE_DATA.length - 1}
-              />
-            ))}
-          </ol>
-        </section>
+            <ol className="timeline-list">
+              {EXPERIENCE_DATA.map((item, index) => (
+                <div
+                  key={`experience-${index}`}
+                  className="animate-fadeIn"
+                  style={{
+                    animationDelay: `${0.2 + index * 0.08}s`,
+                    animationDuration: '0.6s',
+                    animationFillMode: 'both'
+                  }}
+                >
+                  <BackgroundItem
+                    title={item.title}
+                    company={item.company}
+                    duration={item.duration}
+                    location={item.location}
+                    description={item.description}
+                    skills={item.skills}
+                    isLast={index === EXPERIENCE_DATA.length - 1}
+                  />
+                </div>
+              ))}
+            </ol>
+          </section>
 
-        {/* Education Section */}
-        <section className="timeline">
-          <div className="title-wrapper flex items-center gap-4 mb-5">
-            <div className="bg-black/25 rounded-xl border border-white/0 flex items-center justify-center p-3 backdrop-blur-sm shadow-md">
-              <Image 
-                alt="Education"
-                src="education.svg"
-                width={24}
-                height={24}
-                className="object-contain"
-              />
+          {/* Education Section */}
+          <section className="timeline">
+            <div 
+              className="title-wrapper flex items-center gap-4 mb-5 animate-fadeIn"
+              style={{
+                animationDelay: `${0.2 + EXPERIENCE_DATA.length * 0.08 + 0.1}s`,
+                animationDuration: '0.6s',
+                animationFillMode: 'both'
+              }}
+            >
+              <div className="bg-black/25 rounded-xl border border-white/0 flex items-center justify-center p-3 backdrop-blur-sm shadow-md">
+                <Image 
+                  alt="Education"
+                  src="education.svg"
+                  width={24}
+                  height={24}
+                  className="object-contain"
+                />
+              </div>
+              <h2 className="text-xl font-bold text-white">Education</h2>
             </div>
-            <h2 className="text-xl font-bold text-white">Education</h2>
-          </div>
-          <ol className="timeline-list">
-            {EDUCATION_DATA.map((item, index) => (
-              <BackgroundItem
-                key={`education-${index}`}
-                title={item.title}
-                company={item.company}
-                duration={item.duration}
-                location={item.location}
-                description={item.description}
-                skills={item.skills}
-                isLast={index === EDUCATION_DATA.length - 1}
-              />
-            ))}
-          </ol>
-        </section>
+            <ol className="timeline-list">
+              {EDUCATION_DATA.map((item, index) => (
+                <div
+                  key={`education-${index}`}
+                  className="animate-fadeIn"
+                  style={{
+                    animationDelay: `${0.2 + EXPERIENCE_DATA.length * 0.08 + 0.2 + index * 0.08}s`,
+                    animationDuration: '0.6s',
+                    animationFillMode: 'both'
+                  }}
+                >
+                  <BackgroundItem
+                    title={item.title}
+                    company={item.company}
+                    duration={item.duration}
+                    location={item.location}
+                    description={item.description}
+                    skills={item.skills}
+                    isLast={index === EDUCATION_DATA.length - 1}
+                  />
+                </div>
+              ))}
+            </ol>
+          </section>
+        </div>
       </div>
     </Card>
   );
