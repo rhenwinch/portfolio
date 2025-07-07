@@ -31,7 +31,7 @@ export default function ContactInfo({
           className="object-contain"
         />
       </div>
-      <div className="text-white/85 text-sm font-medium">
+      <div className="text-white/85 text-sm font-medium hover:text-white transition-colors duration-300">
         {text}
       </div>
     </a>
