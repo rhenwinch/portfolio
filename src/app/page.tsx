@@ -15,7 +15,13 @@ export default function MainContent() {
 
   // Load saved navigation state from session storage
   useEffect(() => {
-    const savedNav = sessionStorage.getItem('activeNav') as NavItem;
+    const session = sessionStorage.getItem('activeNav')
+    const savedNav = session as NavItem;
+    if (session == '') {
+      setActiveNav('About me'); // Default to 'About me' if no nav is saved
+      return;
+    }
+
     if (savedNav && ['About me', 'Projects', 'Experiences'].includes(savedNav)) {
       setActiveNav(savedNav);
     }
