@@ -5,11 +5,11 @@ import Card from "@/components/Card";
 import NavButton from "@/components/NavButton";
 import AboutMe from "./ui/screens/AboutMe";
 import Projects from "./ui/screens/Projects";
-import Experiences from "./ui/screens/Experiences";
+import Background from "./ui/screens/Background";
 import Image from 'next/image';
 import ContactInfo, { ContactInfoProps } from '@/components/ContactInfo';
 
-type NavItem = 'About me' | 'Projects' | 'Experiences';
+type NavItem = 'About me' | 'Projects' | 'Background';
 
 const contactInfoList: ContactInfoProps[] = [
   {
@@ -64,7 +64,7 @@ export default function MainContent() {
       return;
     }
 
-    if (savedNav && ['About me', 'Projects', 'Experiences'].includes(savedNav)) {
+    if (savedNav && ['About me', 'Projects', 'Background'].includes(savedNav)) {
       setActiveNav(savedNav);
     }
   }, []);
@@ -90,8 +90,8 @@ export default function MainContent() {
         return <AboutMe />;
       case 'Projects':
         return <Projects />;
-      case 'Experiences':
-        return <Experiences />;
+      case 'Background':
+        return <Background />;
       default:
         return null;
     }
@@ -150,10 +150,10 @@ export default function MainContent() {
               Projects
             </NavButton>
             <NavButton
-              isActive={activeNav === 'Experiences'}
-              onClick={() => handleNavChange('Experiences')}
+              isActive={activeNav === 'Background'}
+              onClick={() => handleNavChange('Background')}
             >
-              Experiences
+              Background
             </NavButton>
           </div>
         </Card>

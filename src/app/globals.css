@@ -31,6 +31,7 @@ body {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -42,6 +43,7 @@ body {
     transform: scale(0);
     opacity: 1;
   }
+
   100% {
     transform: scale(4);
     opacity: 0;
@@ -67,4 +69,49 @@ body {
 
 .translate-y-4 {
   transform: translateY(1rem);
+}
+
+/* Timeline Styles */
+.timeline {
+  margin-bottom: 3rem;
+}
+
+.timeline-list {
+  margin-left: 42px;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.timeline-item:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+.timeline-item-with-line::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -17px;
+  width: 1px;
+  height: calc(100% + 62px);
+  background: rgb(57, 57, 57);
+}
+
+.timeline-item-dot::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: -22px;
+  height: 10px;
+  width: 10px;
+  background: rgb(253 186 116);
+  /* orange-300 */
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.05);
+}
+
+.timeline-item-title {
+  margin-bottom: 0.5rem;
 }
