@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Card from "@/components/Card";
 import NavButton from "@/components/NavButton";
 import AboutMe from "./ui/screens/AboutMe";
@@ -9,7 +9,7 @@ import Background from "./ui/screens/Background";
 import Image from 'next/image';
 import ContactInfo, { ContactInfoProps } from '@/components/ContactInfo';
 
-type NavItem = 'About me' | 'Projects' | 'Background';
+type NavItem = 'about-me' | 'projects' | 'background';
 
 const contactInfoList: ContactInfoProps[] = [
   {
@@ -55,45 +55,56 @@ export default function MainContent() {
   const [activeNav, setActiveNav] = useState<NavItem | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
-  // Load saved navigation state from session storage
-  useEffect(() => {
-    const session = sessionStorage.getItem('activeNav')
-    const savedNav = session as NavItem;
-    if (session == '') {
-      setActiveNav('About me'); // Default to 'About me' if no nav is saved
-      return;
+  // Function to get current section from URL hash
+  const getCurrentSection = (): NavItem => {
+    if (typeof window === 'undefined') return 'about-me';
+    
+    const hash = window.location.hash.slice(1); // Remove the #
+    if (hash === 'projects' || hash === 'background' || hash === 'about-me') {
+      return hash as NavItem;
     }
+    return 'about-me'; // Default section
+  };
 
-    if (savedNav && ['About me', 'Projects', 'Background'].includes(savedNav)) {
-      setActiveNav(savedNav);
-    }
-  }, []);
-
-  // Save navigation state to session storage whenever it changes
-  useEffect(() => {
-    sessionStorage.setItem('activeNav', activeNav || '');
-  }, [activeNav]);
-
-  const handleNavChange = (newNav: NavItem) => {
+  const handleNavChange = useCallback((newNav: NavItem) => {
     if (newNav === activeNav) return;
 
     setIsTransitioning(true);
+    
+    // Update URL hash
+    window.history.pushState(null, '', `#${newNav}`);
+    
     setTimeout(() => {
       setActiveNav(newNav);
       setIsTransitioning(false);
     }, 150);
-  };
+  }, [activeNav]);
+
+  // Load navigation state from URL hash
+  useEffect(() => {
+    const currentSection = getCurrentSection();
+    setActiveNav(currentSection);
+
+    // Listen for hash changes (browser back/forward)
+    const handleHashChange = () => {
+      const newSection = getCurrentSection();
+      handleNavChange(newSection);
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, [handleNavChange]);
 
   const renderActiveView = () => {
     switch (activeNav) {
-      case 'About me':
+      case 'about-me':
         return <AboutMe />;
-      case 'Projects':
+      case 'projects':
         return <Projects />;
-      case 'Background':
+      case 'background':
         return <Background />;
       default:
-        return null;
+        return <AboutMe />;
     }
   };
 
@@ -138,20 +149,20 @@ export default function MainContent() {
         <Card className="py-4 px-7 max-w-fit rounded-">
           <div className="flex flex-row gap-5">
             <NavButton
-              isActive={activeNav === 'About me'}
-              onClick={() => handleNavChange('About me')}
+              isActive={activeNav === 'about-me'}
+              onClick={() => handleNavChange('about-me')}
             >
               About me
             </NavButton>
             <NavButton
-              isActive={activeNav === 'Projects'}
-              onClick={() => handleNavChange('Projects')}
+              isActive={activeNav === 'projects'}
+              onClick={() => handleNavChange('projects')}
             >
               Projects
             </NavButton>
             <NavButton
-              isActive={activeNav === 'Background'}
-              onClick={() => handleNavChange('Background')}
+              isActive={activeNav === 'background'}
+              onClick={() => handleNavChange('background')}
             >
               Background
             </NavButton>
