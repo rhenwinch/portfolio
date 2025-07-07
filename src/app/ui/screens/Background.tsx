@@ -39,7 +39,7 @@ const EXPERIENCE_DATA: HistoryItem[] = [
       "Progressed to JavaScript, which made learning Python and other languages significantly easier",
       "Leveraged programming skills to create automation bots and quality-of-life scripts for daily tasks",
       "Learned Android development in 2022, specializing in Jetpack Compose and modern architecture",
-      "Created Flixclusive, a media streaming app with 40k+ downloads that trended on GitHub Kotlin",
+      "Created Flixclusive, a media player app with 40k+ downloads that trended on GitHub Kotlin",
       "Actively take on thesis and school project commissions, helping students with their academic work",
       "Collaborated with open-source communities and managed contributions from multiple developers"
     ],
@@ -113,7 +113,7 @@ const EDUCATION_DATA: HistoryItem[] = [
 
 export default function Background() {
   return (
-    <Card className="p-6 max-w-4xl">
+    <Card className="p-6 w-fill">
       <Header title="Background" className="mb-8" />
       
       <div className="space-y-12">

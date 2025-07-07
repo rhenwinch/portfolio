@@ -208,7 +208,7 @@ export default function Projects() {
 
   return (
     <>
-      <Card className="p-6 max-w-4xl">
+      <Card className="p-6 w-fill">
         <Header title="Projects" className="mb-8" />
         
         {/* Simplified Filter Buttons */}

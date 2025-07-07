@@ -46,7 +46,7 @@ const WHAT_TO_LEARN: Skill[] = [
 
 export default function AboutMe() {
   return (
-    <Card className="p-6 max-w-4xl">
+    <Card className="p-6 w-fill">
       <Header title="About Me" className="mb-6" />
       <div className="text-white font-normal leading-relaxed">
         <p className="mb-4 text-white/80">
