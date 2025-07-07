@@ -54,6 +54,8 @@ const contactInfoList: ContactInfoProps[] = [
 export default function MainContent() {
   const [activeNav, setActiveNav] = useState<NavItem | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  
+  const isEmployed = false;
 
   // Function to get current section from URL hash
   const getCurrentSection = (): NavItem => {
@@ -113,13 +115,22 @@ export default function MainContent() {
       <div className="flex flex-col md:flex-row h-[32vh] items-center gap-8">
         <Card className="h-[100%]">
           <div className="w-65 h-[100%] flex flex-col justify-center items-center gap-10 m-auto">
-            <Image
-              src="/profile-picture.jpg"
-              alt="Profile picture"
-              height={135}
-              width={135}
-              className="rounded-full aspect-square object-cover"
-            />
+            <div className="relative">
+              <Image
+                src="/profile-picture.jpg"
+                alt="Profile picture"
+                height={135}
+                width={135}
+                className="rounded-full aspect-square object-cover"
+              />
+              <div className={`absolute -bottom-3 left-1/2 transform -translate-x-1/2 ${
+                isEmployed ? 'bg-gradient-to-r from-green-500 to-emerald-500' : 'bg-gradient-to-r from-red-500 to-rose-500'
+              } text-white text-xs font-semibold px-3 py-1 rounded-lg border border-white/20 shadow-lg backdrop-blur-sm whitespace-nowrap transition-all duration-300 hover:scale-105`}>
+                <span className="tracking-wide">
+                  {isEmployed ? 'EMPLOYED 🚀✨' : 'UNEMPLOYED 😭💸'}
+                </span>
+              </div>
+            </div>
             <div className="flex flex-col justify-center items-center gap-2.5">
               <div className="text-white md:text-4xl font-bold">Rhen Arañes</div>
               <div><span className="text-white/80 text-base font-medium">Software Developer | </span><span className="text-orange-300 text-base font-medium">Android</span></div>
