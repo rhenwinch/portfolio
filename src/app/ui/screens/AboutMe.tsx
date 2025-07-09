@@ -19,7 +19,7 @@ const WHAT_I_KNOW: Skill[] = [
   { title: "Java", src: "/skills/java.svg" },
   { title: "Jetpack Compose", src: "/skills/jetpack-compose.svg" },
   { title: "Views", src: "/skills/views.svg" },
-  { title: "Hit/Dagger", src: "/skills/hilt.svg" },
+  { title: "Hilt/Dagger", src: "/skills/hilt.svg" },
   { title: "Retrofit/Okhttp", src: "/skills/okhttp.png" },
   { title: "LiveData, Flow & Coroutines", src: "/skills/flow.svg" },
   { title: "Datastore", src: "/skills/datastore.svg" },
