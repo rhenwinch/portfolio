@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
-import Image from "next/image";
-import Card from "@/components/Card";
-import ContactInfo, { ContactInfoProps } from "@/components/ContactInfo";
 
 const montserratSans = Montserrat({
   variable: "--font-montserrat-sans",
