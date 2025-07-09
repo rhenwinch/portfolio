@@ -212,14 +212,14 @@ export default function Projects() {
         <Header title="Projects" className="mb-8" />
         
         {/* Simplified Filter Buttons */}
-        <div className="mb-10 ml-1">
-          <div className="flex flex-wrap gap-2 items-center">
+        <div className="mb-6 sm:mb-10 ml-1">
+          <div className="flex flex-wrap gap-1.5 sm:gap-2 items-center">
             <Image
               src={"filter.svg"}
               alt="Filter Icon"
               width={16}
               height={16}
-              className="mr-2"
+              className="mr-1 sm:mr-2"
             />
 
             {FILTER_OPTIONS.map((option) => (
@@ -227,7 +227,7 @@ export default function Projects() {
                 key={option.value}
                 onClick={() => handleFilterChange(option.value)}
                 className={`
-                  px-5 py-1.5 rounded-[15px] text-sm font-medium 
+                  px-3 py-1.5 sm:px-5 sm:py-1.5 mr-2 rounded-[15px] text-xs sm:text-sm font-medium 
                   transition-all duration-200 ease-out
                   focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-300
                   ${
@@ -243,7 +243,7 @@ export default function Projects() {
           </div>
           
           {/* Results count indicator */}
-          <div className="mt-4 text-sm text-gray-600 dark:text-gray-400">
+          <div className="mt-3 sm:mt-4 text-xs sm:text-sm text-gray-600 dark:text-gray-400">
             {filteredProjects.length} {filteredProjects.length === 1 ? 'project' : 'projects'} found
           </div>
         </div>
@@ -251,7 +251,7 @@ export default function Projects() {
         {/* Projects Grid with Material Design elevation */}
         <div 
           className={`
-            grid gap-6 md:grid-cols-2 
+            grid gap-4 sm:gap-6 grid-cols-1 lg:grid-cols-2 
             transition-all duration-500 ease-in-out
             ${isFilterChanging 
               ? 'opacity-0 transform translate-y-4 scale-98' 
