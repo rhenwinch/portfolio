@@ -1,6 +1,7 @@
 'use client';
 
 import ContactInfo, { ContactInfoProps } from '@/components/ContactInfo';
+import { cn } from '@/lib/utils';
 
 interface ContactSectionProps {
   contactInfoList: ContactInfoProps[];
@@ -18,7 +19,7 @@ export default function ContactSection({
   const getLayoutClasses = () => {
     switch (layout) {
       case 'grid':
-        return 'grid grid-cols-2 gap-5 h-[100%] items-center w-full min-w-0';
+        return 'grid grid-cols-2 gap-8 h-[100%] items-center justify-items-stretch w-full';
       case 'responsive':
         return 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-3 w-full';
       case 'vertical':
@@ -28,7 +29,7 @@ export default function ContactSection({
   };
 
   return (
-    <div className={className}>
+    <div className={cn(className, 'w-full')}>
       {showHeader && (
         <div className="text-white/60 text-xs font-medium uppercase tracking-wider mb-4 text-center md:text-left">
           Contact Information
