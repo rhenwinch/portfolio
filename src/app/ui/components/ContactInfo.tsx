@@ -32,7 +32,7 @@ export default function ContactInfo({
           className="object-contain w-5 h-5 md:w-5 md:h-5"
         />
       </div>
-      <div className="text-white/85 text-sm md:text-sm font-medium hover:text-white active:text-white transition-colors duration-300 flex-1 min-w-0 break-words leading-relaxed">
+      <div className="text-white/85 text-sm md:text-sm font-medium hover:text-white active:text-white transition-colors duration-300 flex-1 min-w-0 truncate leading-relaxed">
         {text}
       </div>
     </a>
