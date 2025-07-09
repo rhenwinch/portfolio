@@ -159,6 +159,15 @@ const projects: Project[] = [
     ],
     category: ProjectCategory.OTHERS
   },
+  {
+    name: "Roblox - Fishing Simulator Bot",
+    preview: "/projects/robloxfish-preview.png",
+    description: "A bot that automates the process of playing the game Fishing Simulator on Roblox, allowing users to focus on other tasks while the bot handles in-game activities.",
+    dateAccomplished: "Jan 2023",
+    techStack: ["Automation & Scripting", "Python", "Game", "OpenCV", "Object Detection"],
+    availableOn: [],
+    category: ProjectCategory.OTHERS
+  },
 ];
 
 export default function Projects() {
