@@ -15,10 +15,18 @@ interface HistoryItem {
 
 const EXPERIENCE_DATA: HistoryItem[] = [
   {
+    title: "Mobile Developer",
+    company: "ED3N Ventures",
+    duration: "Sept 2025 - present",
+    location: "Makati, Philippines",
+    description: [],
+    skills: ["Mobile", "Flutter", "Android", "iOS"]
+  },
+  {
     title: "Full-Stack Developer Intern",
     company: "ROC.PH",
     duration: "Feb 2025 - May 2025",
-    location: "Philippines",
+    location: "Remote",
     description: [
       "Became a group leader for a UI/UX team of 3 interns",
       "Led a group of 5 intern developers in building a full-stack web application for the company's HRIS",

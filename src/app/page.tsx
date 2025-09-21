@@ -48,7 +48,7 @@ const contactInfoList: ContactInfoProps[] = [
     iconAlt: "Location",
     iconSrc: "/contact/contact-resume.svg",
     text: "My Resume",
-    href: "#"
+    href: "https://drive.google.com/file/d/12INoOhm2hop66wDWGTElxSPpgUu3VQDX/view?usp=sharing"
   }
 ];
 
@@ -58,7 +58,7 @@ export default function MainContent() {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isContactDrawerOpen, setIsContactDrawerOpen] = useState(false);
 
-  const isEmployed = false;
+  const isEmployed = true; // Change to true if currently employed
 
   // Function to get current section from URL hash
   const getCurrentSection = (): NavItem => {
