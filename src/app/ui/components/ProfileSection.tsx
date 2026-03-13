@@ -61,7 +61,7 @@ export default function ProfileSection({
           </div>
           <div className="text-center">
             <span className={`text-white/80 font-medium ${config.subtitleClass}`}>
-              Software Developer | 
+              Software Developer{' | '}
             </span>
             <span className={`text-orange-300 font-medium ${config.subtitleClass}`}>
               Android

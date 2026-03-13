@@ -8,7 +8,7 @@ interface Skill {
 }
 
 const WHAT_I_DO: Skill[] = [
-  { title: "Android Development", src: "/skills/android.svg" },
+  { title: "Mobile Development", src: "/skills/android.svg" },
   { title: "Full-Stack Web Development", src: "/skills/webdev.svg" },
   { title: "UI/UX Design", src: "/skills/ui.svg" },
   { title: "Automation & Scripting", src: "/skills/bot.svg" },
@@ -19,6 +19,7 @@ const WHAT_I_KNOW: Skill[] = [
   { title: "Java", src: "/skills/java.svg" },
   { title: "Jetpack Compose", src: "/skills/jetpack-compose.svg" },
   { title: "Views", src: "/skills/views.svg" },
+  { title: "Flutter", src: "/skills/flutter.svg" },
   { title: "Hilt/Dagger", src: "/skills/hilt.svg" },
   { title: "Retrofit/Okhttp", src: "/skills/okhttp.png" },
   { title: "LiveData, Flow & Coroutines", src: "/skills/flow.svg" },
@@ -38,19 +39,21 @@ const WHAT_I_KNOW: Skill[] = [
 const WHAT_TO_LEARN: Skill[] = [
   { title: "Compose Internals & Multiplatform", src: "/skills/jetpack-compose.svg" },
   { title: "Swift", src: "/skills/swift.svg" },
-  { title: "Flutter", src: "/skills/flutter.svg" },
   { title: "Golang", src: "/skills/golang.svg" },
   { title: "Docker", src: "/skills/docker.svg" },
   { title: "Game Development", src: "/skills/gamedev.svg" },
 ];
 
 export default function AboutMe() {
+  const yearsSince2022 = new Date().getFullYear() - 2022;
+  const yearsSince2020 = new Date().getFullYear() - 2020;
+
   return (
     <Card className="p-6 w-fill">
       <Header title="About Me" className="mb-6" />
       <div className="text-white font-normal leading-relaxed">
         <p className="mb-4 text-sm sm:text-base text-white/80 leading-6 sm:leading-relaxed">
-          I&apos;m a passionate Android developer with 3 years of specialized experience and 5+ years in programming overall. What drives me most is creating intuitive, solution-focused mobile applications that solve real problems. My development philosophy centers on robust software architecture, proper development processes, and thoughtful UI/UX design to ensure long-term scalability and maintainability.
+          I&apos;m a passionate Android developer with {yearsSince2022} years of specialized experience and {yearsSince2020}+ years in programming overall. What drives me most is creating intuitive, solution-focused mobile applications that solve real problems. My development philosophy centers on robust software architecture, proper development processes, and thoughtful UI/UX design to ensure long-term scalability and maintainability.
         </p>
         <p className="mb-4 text-sm sm:text-base text-white/80 leading-6 sm:leading-relaxed">
           I&apos;m committed to following industry best practices and staying current with community recommendations and documentation. I have a persistent approach to problem-solving and enjoy tackling complex challenges until they&apos;re resolved. I&apos;m always open to collaborations and excited to work on projects that inspire innovative solutions.

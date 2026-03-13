@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const getIconForPlatform = (platform: string) => {
   const iconStyle = {
@@ -7,14 +7,14 @@ const getIconForPlatform = (platform: string) => {
   };
   
   const iconMap: { [key: string]: React.ReactNode } = {
-    'GitHub': <Image src="/contact/contact-github.svg" alt="GitHub" width={16} height={16} style={iconStyle} />,
-    'Website': <Image src="/globe.svg" alt="Website" width={16} height={16} style={iconStyle} />,
-    // 'App Store': <span className="text-lg">📱</span>,
-    // 'Play Store': <span className="text-lg">🤖</span>,
+    'GitHub': <Image src="/projects/github.svg" alt="GitHub" width={16} height={16} style={iconStyle} />,
+    'Website': <Image src="/projects/globe.svg" alt="Website" width={16} height={16} style={iconStyle} />,
+    'App Store': <Image src="/projects/app-store.svg" alt="App Store" width={16} height={16} style={iconStyle} />,
+    'Play Store': <Image src="/projects/play-store.svg" alt="Play Store" width={16} height={16} style={iconStyle} />,
   };
   
   // Return the icon if found, otherwise return a default link icon
-  return iconMap[platform] || <Image src="/globe.svg" alt="Link" width={16} height={16} style={iconStyle} />;
+  return iconMap[platform] || <Image src="/projects/globe.svg" alt="Link" width={16} height={16} style={iconStyle} />;
 };
 
 const getGitHubRepoFromUrl = (url: string): { owner: string; repo: string } | null => {

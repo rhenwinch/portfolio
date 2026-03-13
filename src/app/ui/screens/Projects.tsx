@@ -1,19 +1,19 @@
 import Card from "@/components/Card";
 import Header from "@/components/Header";
 import ProjectCard from "@/components/ProjectCard";
-import { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
+import { useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
 
 enum ProjectCategory {
-  ANDROID = "Android",
+  MOBILE = "Mobile",
   WEB = "Web",
   OTHERS = "Others"
 }
 
 const FILTER_OPTIONS = [
   { value: 'all', label: 'All' },
-  { value: ProjectCategory.ANDROID, label: 'Android' },
+  { value: ProjectCategory.MOBILE, label: 'Mobile' },
   { value: ProjectCategory.WEB, label: 'Web' },
   { value: ProjectCategory.OTHERS, label: 'Others' }
 ];
@@ -39,7 +39,20 @@ const projects: Project[] = [
     availableOn: [
       { label: "GitHub", url: "https://github.com/flixclusiveorg/Flixclusive" }
     ],
-    category: ProjectCategory.ANDROID
+    category: ProjectCategory.MOBILE
+  },
+  {
+    name: "KIN Labs",
+    preview: "/projects/kin-preview.png",
+    description: "A modern healthcare app designed to integrate KIN - a smart health ring and wellness app designed to help users better understand their bodies, right from their fingers.",
+    dateAccomplished: "Sept 2025 - Mar 2026",
+    techStack: ["Android", "Xcode", "Swift", "Dart", "Flutter", "BloC", "BLE", "Web3", "Firebase", "App Store", "Google Play Store", "Nest.js", "Full-stack", "MongoDB"],
+    availableOn: [
+      { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.kinlabs.life" },
+      { label: "App Store", url: "https://apps.apple.com/us/app/kin-labs/id6749462039" }
+    ],
+    isOpenForContributions: false,
+    category: ProjectCategory.MOBILE
   },
   {
     name: "Track a Habit",
@@ -51,7 +64,7 @@ const projects: Project[] = [
       { label: "GitHub", url: "https://github.com/rhenwinch/track-a-habit" }
     ],
     isOpenForContributions: true,
-    category: ProjectCategory.ANDROID
+    category: ProjectCategory.MOBILE
   },
   {
     name: "Auto-SMMO",
@@ -63,7 +76,7 @@ const projects: Project[] = [
       { label: "GitHub", url: "https://github.com/rhenwinch/Auto-SMMO" }
     ],
     isOpenForContributions: true,
-    category: ProjectCategory.ANDROID
+    category: ProjectCategory.MOBILE
   },
   {
     name: "LaundryMIS",
@@ -72,7 +85,7 @@ const projects: Project[] = [
     dateAccomplished: "Aug 2023 - Jun 2024",
     techStack: ["Android", "React Native", "Firebase", "Redux", "Twilio API", "TypeScript"],
     availableOn: [],
-    category: ProjectCategory.ANDROID
+    category: ProjectCategory.MOBILE
   },
   {
     name: "Dagitab",

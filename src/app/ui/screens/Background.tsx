@@ -1,8 +1,8 @@
+import BackgroundItem from "@/components/BackgroundItem";
 import Card from "@/components/Card";
 import Header from "@/components/Header";
-import BackgroundItem from "@/components/BackgroundItem";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 interface HistoryItem {
   title: string;
@@ -14,12 +14,28 @@ interface HistoryItem {
 }
 
 const EXPERIENCE_DATA: HistoryItem[] = [
+
+  {
+    title: "Android Developer Intern",
+    company: "White Widget",
+    duration: "Mar 2026 - present",
+    location: "QC, Philippines",
+    description: [],
+    skills: ["Android", "Mobile"]
+  },
   {
     title: "Mobile Developer",
     company: "ED3N Ventures",
-    duration: "Sept 2025 - present",
+    duration: "Sept 2025 - Mar 2026",
     location: "Makati, Philippines",
-    description: [],
+    description: [
+      "Improved a cross-platform mobile application",
+      "Leveraged Xcode for iOS development",
+      "Grasped a brief knowledge about Swift",
+      "Surfed through play store policies and app store policies difficulties",
+      "Learned the nature of MongoDB and Nest.js",
+      "Utilized Flutter for the first time for mobile development"
+    ],
     skills: ["Mobile", "Flutter", "Android", "iOS"]
   },
   {
